@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* ============================================================
+   DESIGN SYSTEM — versão refinada (pós refactor UI premium)
+   ============================================================ */
+
+:root {
+  /* Backgrounds */
+  --color-bg: #fcfaf8;
+  --color-bg-dark: #15131a;
+
+  --color-card: #ffffff;
+
+  /* Textos */
+  --color-text: #1f2937;
+  --color-text-muted: #6b7280;
+
+  /* Accent system */
+  --color-accent: #e8b4cb;
+  --color-accent-strong: #d98fae;
+
+  --color-secondary: #dccef9;
+  --color-secondary-strong: #b9a3ed;
+
+  /* Bordas mais suaves (mais premium) */
+  --color-border: rgba(31, 41, 55, 0.05);
+
+  /* Sombras refinadas */
+  --shadow-soft: 0 2px 10px rgba(31, 41, 55, 0.04);
+
+  --shadow-card:
+    0 6px 20px rgba(232, 180, 203, 0.10),
+    0 1px 3px rgba(31, 41, 55, 0.04);
+
+  --shadow-floating:
+    0 16px 50px rgba(31, 41, 55, 0.10);
+
+  --shadow-vinyl:
+    0 30px 80px rgba(0, 0, 0, 0.25);
+
+  /* Tipografia */
+  --font-display: var(--font-cormorant);
+  --font-body: var(--font-inter);
+  --font-script: var(--font-sacramento);
+
+  /* Easing cinematográfico consistente */
+  --ease-elegant: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Tailwind theme mapping */
+@theme inline {
+  --color-bg: var(--color-bg);
+  --color-card: var(--color-card);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+
+  --color-accent: var(--color-accent);
+  --color-accent-strong: var(--color-accent-strong);
+
+  --color-secondary: var(--color-secondary);
+  --color-secondary-strong: var(--color-secondary-strong);
+
+  --color-border: var(--color-border);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+  --font-script: var(--font-script);
+}
+
+/* RESET base mais limpo */
+* {
+  border-color: var(--color-border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body), sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  overflow-x: hidden;
+}
+
+/* Melhor foco (acessibilidade + estética) */
+:focus-visible {
+  outline: 2px solid var(--color-accent-strong);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Redução de movimento respeitada */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Scrollbar mais elegante */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(218, 143, 174, 0.5);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(218, 143, 174, 0.7);
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* 🔥 Ajuste importante para cenas escuras (CelebrationScene) */
+.bg-dark {
+  color-scheme: dark;
+}
+
+/* suaviza elementos SVG (vinil fica mais bonito) */
+svg {
+  shape-rendering: geometricPrecision;
+}
+
+/* melhora percepção de blur/glow */
+.blur,
+[class*="blur"] {
+  will-change: transform, filter;
+}
